@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Location> task) {
                             txtLatitude.setText(Double.toString(task.getResult().getLatitude()));
-                            txtLongtitude.setText(Double.toString(task.getResult().getLatitude()));
+                            txtLongtitude.setText(Double.toString(task.getResult().getLongitude()));
                             System.err.println(task.getResult().getLatitude());
                         }
                     });
@@ -58,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LocationRequest req = new LocationRequest();
-        req.setInterval(2000); // 2 seconds
-        req.setFastestInterval(500); // 500 milliseconds
-        req.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+//        LocationRequest req = new LocationRequest();
+//        req.setInterval(2000); // 2 seconds
+//        req.setFastestInterval(500); // 500 milliseconds
+//        req.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(this,
@@ -88,14 +88,14 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // Permission has already been granted
 
-            locationClient.requestLocationUpdates(req,new LocationCallback(){
-                @Override
-                public void onLocationResult(LocationResult locationResult) {
-                    Log.e("location:",locationResult.getLastLocation().toString());
-
-                    Toast.makeText(MainActivity.this, locationResult.getLastLocation().toString(), Toast.LENGTH_LONG).show();
-                }
-            },null);
+//            locationClient.requestLocationUpdates(req,new LocationCallback(){
+//                @Override
+//                public void onLocationResult(LocationResult locationResult) {
+//                    Log.e("location:",locationResult.getLastLocation().toString());
+//
+//                    Toast.makeText(MainActivity.this, locationResult.getLastLocation().toString(), Toast.LENGTH_LONG).show();
+//                }
+//            },null);
 
     }
 }
